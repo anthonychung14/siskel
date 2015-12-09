@@ -3,13 +3,11 @@ var Movie = Backbone.Model.extend({
   defaults: {
     like: true
   },
-
   toggleLike: function() {
     //Your code here
     this.set('like', !this.get('like'))
-    this.on('change', this.collection.sort())
+    // this.on('change', this.collection.sort())
   }
-
 });
 
 var Movies = Backbone.Collection.extend({
@@ -64,7 +62,7 @@ var MovieView = Backbone.View.extend({
 
   initialize: function() {
     // your code here
-    this.model.on('click', this.render(), this);
+    this.model.on('click', this.render, this);
   },
 
   events: {
